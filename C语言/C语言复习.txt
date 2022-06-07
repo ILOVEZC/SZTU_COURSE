@@ -1,0 +1,243 @@
+const double pi = acos(-1.0);
+
+
+矩形数组
+#include<stdio.h>
+#define N 4
+int main()
+{
+	int i,j;
+	int a[N][N];
+	for (i = 0; i < N; i++)
+	{
+		for (j = 0; j < N; j++)
+		{
+			scanf("%d",&a[i][j]);
+			printf("%3d",a[i][j]);
+		}
+		printf("\n");
+	}
+	return 0;
+}
+
+
+查找最大公约数
+#include <stdio.h>
+
+int main(void)
+{
+  int m, n, remainder;
+
+  printf("Enter two integers: ");
+  scanf("%d%d", &m, &n);
+
+  while (n != 0) {
+    remainder = m % n;
+    m = n;
+    n = remainder;
+  }
+
+  printf("Greatest common divisor: %d\n", m);
+
+  return 0;
+}
+
+问题：考虑10
+#include<stdio.h>
+#include<math.h>
+int main(void)
+{
+	float a;
+	double b;
+
+	scanf("%f",&a);
+	if (a==1) {
+			printf("1");
+			return 0;
+	}
+	else {
+		for (;a>1;)  {
+		a=a/3;
+		b=a;
+		
+	}	
+	}
+	if (b==1) 
+	printf("1");
+    else
+	printf("0");
+	
+	return 0;
+}
+
+问题：标点符号的读取
+#include<stdio.h> 
+   int main() 
+ { 
+ char ch; 
+ double a = 0, b = 1; 
+ do { 
+ ch = getchar(); 
+ if (ch != ' ') { 
+ a++; 
+ } 
+ else { 
+ b++; 
+ } 
+ } while (ch != '.'); 
+ printf("%.1f", a/b); 
+   return 0; 
+ } 
+
+
+问题：看不懂，start究竟有啥用
+#include <stdio.h>
+
+int main(void)
+{
+	char start, ch;
+	
+	scanf(" %c", &start);
+	
+	ch = getchar();
+	while(ch < 65 || ch >= 97){
+		ch = getchar();
+	}
+	
+	while(ch != ' ' && ch != '.'){
+		putchar(ch);
+		ch = getchar();
+	}
+	
+	printf(", %c.", start);
+	
+	return 0;
+}
+
+
+问题：过程中n的作用
+#include <stdio.h>
+
+int main(void)
+{
+	int sum, n;
+	char ch;
+	
+	scanf(" %d", &sum);
+	scanf(" %c", &ch);
+	while(ch != '.'){
+		scanf(" %d", &n);
+		switch(ch) {
+			case '+': sum += n;
+			          break;
+			case '-': sum -= n;
+			          break;
+			case '*': sum *= n;
+			          break;
+			case '/': sum /= n;
+			          break;
+		}
+		scanf(" %c", &ch);
+	}
+	
+	printf("%d", sum);
+	
+	return 0;
+}
+
+//问题 A: B1FF过滤器
+#include <stdio.h>
+#define Max 80
+
+int main(void) {
+   char ch, a[Max];
+   int n, i;
+   // 转成大写 
+   for(n = 0; n < Max; n ++) {
+   	   	if((ch = getchar()) == '.'){
+   	 	  break;
+	    }
+   	    a[n] = toupper(ch);
+   }
+   // 替换 
+   for(i = 0; i < n; i ++) {
+   	    switch(a[i]) {
+   	 	    case 'A': printf("4");
+   	 	              break;
+   	 	    case 'B': printf("8");
+   	 	              break;
+   	 	    case 'E': printf("3");
+   	 	              break;
+   	 	    case 'I': printf("1");
+   	 	              break;
+   	 	    case 'O': printf("0");
+   	 	              break;
+   	 	    case 'S': printf("5");
+   	 	              break;
+   	 	    default:  putchar(a[i]);
+   	 	              break;
+		}
+   }
+   printf("!");   
+   return 0;	
+}
+
+
+//问题 B: 计算矩阵的每行与每列的和 
+#include <stdio.h>
+#define N 5
+int main(void){
+	int i, j, sum;
+	int a[N][N];	
+	//输入矩阵 
+	for(i = 0; i < N; i ++) {
+		for(j = 0; j < N; j++) {
+			scanf(" %d", &a[i][j]);
+		}
+	}	
+	//  每行的和 
+	printf("Row totals:");
+	for(i = 0; i < N; i ++) {
+		sum = 0;
+		for(j = 0; j < N; j++){
+			sum += a[i][j];
+		}
+		printf(" %d", sum);
+	}
+	//每列的和
+	printf("\nColumn totals:");
+	for(j = 0; j < N; j ++) {
+		sum = 0;
+		for(i = 0; i < N; i++){
+			sum += a[i][j];
+		}
+		printf(" %d", sum);
+	} 
+	return 0;
+}
+
+#include <stdio.h>
+int day_of_year(int month, int day, int year);
+int main(void){
+	int month, day ,year;
+	scanf("%d/%d/%d", &month, &day, &year);	
+	printf("%d", day_of_year(month, day, year));	
+	return 0;
+}
+
+int day_of_year(int month, int day, int year){
+	int i, day_of_year = day; 
+	days[12] = {31, 28, 31, 30,	31, 30, 31, 31, 30, 31, 30, 31};
+	
+	// if leap years, u need +1 more day
+	if(month > 2 && ((year % 4 == 0 && year % 100 != 0) || 
+	year % 400 == 0)){
+		day_of_year ++;
+	}
+	for(i = 0; i < month -1; i ++){
+		day_of_year += days[i];
+	}	
+	return day_of_year;
+}
+
+

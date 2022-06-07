@@ -1,0 +1,267 @@
+1.指针交换
+void swap(int*n, int*m)
+{
+    int o =*n;
+    *n = *m;
+    *m = o;
+}
+
+2.三者比大小排序（基于1中的指针交换）
+void sort(int*x, int*y, int*z)
+{
+    if((*x < *y) swap(x, y);
+    if((*x < *z) swap(x, z);
+    if((*y < *z) swap(y, z);
+}
+
+3.保留n位小数
+#include<iomanip>
+cout <<fixed<< setprecision(4) << *x * money << endl;
+填充 
+cout << setfill('x') << setw(10) <<77<<endl;
+
+4.const float* x=NULL;
+避免野指针
+
+5.C++ switch语句
+switch (Type)
+{
+case 'D' : x = &D: break;
+case 'E':x = &E; break;
+case 'Y':x = &Y; break;
+case 'H':x = &H; break;
+}
+
+6.new 方法
+分配堆内存
+int a;
+cin>>a;
+int *p = new int[a];
+
+7.strlen函数 
+#include<string.h>
+测量字符串的长度
+
+8.二级指针
+int m,n;
+int **p;
+p = new int *[m];
+for(int i=0;i<m;i++){
+    p[i] = new int[n];
+}
+
+9.引用的交换
+void swap(int& a, int& b) {
+	int temp = a;
+	a = b;
+	b = temp;
+}
+
+10.冒泡、插入、快速排序法的比较
+
+11.C++中的平方、开方、绝对值
+#include <math.h>
+
+//平方 pow()
+int a = pow(4,2);// 4的平方=16
+//开方
+int b = pow(4,0.5);// 4的平方根=2
+int c = sqrt(4);// 4的平方根=2
+//整数绝对值
+int c = abs(b-c);
+//浮点数绝对值
+double d = fabs(b-c);
+
+12.c++strcmp函数
+在头文件cstring中strcmp函数是string compare(字符串比较)的缩写，
+用于比较两个字符串并根据比较结果返回整数。基本形式为strcmp(str1,str2)，
+若str1=str2，则返回零；若str1<str2，则返回负数；若str1>str2，则返回正数
+
+13.使用new方法的时候构造函数只能有一个
+
+14.styrcp
+char *strcpy(char *dest,const char *src)
+复制字符串到另一个数组
+
+15.*this 指向当前对象
+
+16.两种输出方法
+/* printf("rank=%d hp=%d damage=%d exp=%d money=%d\n", rank, hp, damage, exp,
+        money);*/
+
+ cout << "rank=" << rank << " " << "hp=" << hp << " " << "damage=" << damage << " " << "exp=" << exp << " " << "money=" << money << endl;
+
+17.string
+可以用a=b的方式赋值
+
+18.静态数据成员要初始化
+
+19.构造
+ for (int i = 0; i < 20; i++) {
+            id[i] = _id[i];
+            name[i] = _name[i];
+            password[i] = _password[i];
+        }
+
+hotel(char * pname) {
+		customername = new char[strlen(pname) + 1];
+		strcpy(customername, pname);
+
+20.；strncpy
+strncpy(name,pname,sizeof(name));
+
+
+21.
+当一个基类的虚函数什么也不做时，如virtual double area(){ return 0; }，可以创建基类自己的对象；
+但是当一个基类的虚函数是纯虚函数时，如virtual double area() = 0;，不能创建基类自己的对象。
+
+22.stoi（）函数
+C++的字符处理函数，把数字字符串转换成int输出
+
+23.二维数组的释放空间
+for (i = 0; i < m; i++) {
+    delete[] array[i];
+		}
+    delete[] array;
+
+24.自定义swap函数 参数为引用和指针的区别
+
+25.结构体的使用
+struct BirthDate
+{
+	int year;
+	int month;
+	int day;
+};
+
+26.
+求两点距离的公式 dis =sqrt [ (x1-x2)^2  + (y1-y2)^2 ] ， ^2表示平方，sqrt表示开平方根，本公式只是表示含义，不是真实代码
+在C++使用sqrt函数可以求平方根，头文件包含cmath
+
+27.π
+#define PI acos(-1)
+
+28.常用库
+#include<iostream>
+#include <cmath>
+#include <iomanip>
+#include <cstring>
+
+29.next day
+bool Date::isLeap(int year) {
+	return year % 100 == 0 ? year % 400 == 0 : year % 4 == 0;  //  or return(year % 4 == 0 && year % 100 == 0) || (year % 400 ==0)
+}
+void Date::addOneDay() {
+	int monthDays[] = { 0,31,isLeap(year) ? 29 : 28,31,30,31,30,31,31,30,31,30,31 };
+	++day;
+	if (day > monthDays[month]) {
+		++month;
+		day = 1;
+	}
+	if (month > 12) {
+		++year;
+		month = 1;
+	}
+}
+
+30.求最大公约数
+int CFraction::getGCD() {
+    int remainder = 0;
+    int a = 0, b = 0;
+    a = fz;
+    b = fm;
+    while (a != 0) {
+        remainder = b % a;
+        b = a;
+        a = remainder;
+    }
+
+    return  b;
+}
+
+31.求年龄相差最大
+#include<iostream>
+#include<cmath>
+using namespace std;
+
+
+
+class student {
+	string name;
+	int year, month, day;
+	int Month[13] = { 0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+public:
+	student() {}
+	student(string n, int y, int m, int d) {
+		name = n;
+		year = y;
+		month = m;
+		day = d;
+	}
+	string getName() { return name; }
+	friend int operator - (student&, student&);
+	friend bool isLeap(student& s1);
+};
+
+
+bool isLeap(student& s1) {
+	if (s1.year % 400 == 0 || s1.year % 4 == 0 && s1.year % 100 != 0) {
+		return true;
+	}
+	else { return false; }
+}
+int operator - (student& s1, student& s2) {
+	int d1, d2;
+	d1 = s1.day;
+	d2 = s2.day;
+	if (isLeap(s1)) {
+		s1.Month[2] = 29;
+	}
+	if (isLeap(s2)) {
+		s2.Month[2] = 29;
+	}
+	for (int j = 1; j < s1.month; j++) {
+		d1 += s1.Month[j - 1];
+	}
+	for (int j = 1; j < s2.month; j++) {
+		d2 += s2.Month[j - 1];
+	}
+	for (int q = 1992; q < s1.year; q++) {
+		if (q % 400 == 0 || q % 4 == 0 && q % 100 != 0) {
+			d1 += 366;
+		}
+		else { d1 += 365; }
+	}
+	for (int q = 1992; q < s2.year; q++) {
+		if (q % 400 == 0 || q % 4 == 0 && q % 100 != 0) {
+			d2 += 366;
+		}
+		else { d2 += 365; }
+	}
+	return abs(d1 - d2);
+
+}
+
+int main() {
+	int t;
+	cin >> t;
+	string name;
+	int year, month, day;
+	student* s = new student[t];
+	student* s1 = new student[2];
+	for (int i = 0; i < t; i++) {
+		cin >> name >> year >> month >> day;
+		s[i] = student(name, year, month, day);
+	}
+	int a = 0;
+	for (int i = 0; i < t; i++) {
+		for (int j = 1; j < t; j++) {
+			if (s[i] - s[j] > a) {
+				a = s[i] - s[j];
+				s1[0] = s[i];
+				s1[1] = s[j];
+			}
+		}
+	}
+	cout << s1[0].getName() << "和" << s1[1].getName() << "年龄相差最大，为" << a << "天。" << endl;
+}
